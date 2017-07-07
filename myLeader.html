@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html>
+<!--
+	Modification of this file is not allowed...
+	The offline webapplication was made by Team Webloud 
+	Website : www.webloud.in
+	Facebook : www.fb.com/webloud 
+ -->
+<head>
+<meta charset="utf-8">
+<title>myLeader - School Election Software</title>
+<style type="text/css">
+	body{
+		font: 14px/1 'Arial';
+		margin: 0;
+		background: #FCFCFC;
+	}
+	@font-face {
+	    font-family: "cFontA";
+	    src: url(data/fonta.otf);
+	}
+	@font-face {
+	    font-family: "cFontB";
+	    src: url(data/fontb.ttf);
+	}
+	@font-face {
+	    font-family: "cFontC";
+	    src: url(data/fontc.ttf);
+	}
+	@font-face {
+	    font-family: "Meera";
+	    src: url(data/fontb.ttf);
+	}
+	.pagedivs{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+	}
+		.solgan{
+			height: 100px;
+		}
+		._3sc{
+			width: 100%;
+			min-height: 160px;
+			overflow: hidden;
+			background: #FFF;
+		}
+		.footer{
+			width: 100%;
+			min-height: 180px;
+			overflow: hidden;
+			background: #1A1A1A;
+		}
+
+	.sp_hlta{
+		color: #444444;
+	}
+
+	.inex_box_bba{
+		margin-bottom: 14px;
+	}
+	.inex_box_bba input,.inex_box_bba select{
+		width: 410px;
+		margin: 2px 0;
+		padding: 5px 10px;
+		outline: none;
+		border:2px solid #DDD;
+		font: bold 16px/1 "cFontB";
+		color: #555;
+		letter-spacing: 1px;
+		-webkit-transition:all 200ms ease-in-out;
+		-moz-transition:all 200ms ease-in-out;
+		-ms-transition:all 200ms ease-in-out;
+		-o-transition:all 200ms ease-in-out;
+		transition:all 200ms ease-in-out;
+		background-position: 430px center;
+	}
+	.inex_box_bba input.active{
+		background:#FFFFFF url(data/pixels/green_tic_21.png) no-repeat;
+		background-position: 406px center;
+	}
+	.grid_3{
+		width: 33.33333%;
+		position: relative;
+	    float: left;
+     	box-sizing: border-box;
+	}
+		.padd_0_8{
+			display:block;
+			padding: 0 8px;
+		}
+			.card{
+				display: block;
+				background: #FFFFFF;
+				margin-bottom: 14px;
+				border-bottom: 2px solid #40556b;
+				cursor: pointer;
+				overflow: hidden;
+			}		
+				.padd_25{
+					display:block;
+					padding: 25px;
+				}
+				.card:hover .card_icon {
+					-webkit-text-shadow: 0 0 120px #FFFFFF;	
+					-moz-text-shadow: 0 0 120px #FFFFFF;	
+					text-shadow: 0 0 150px #FFFFFF;	
+					opacity: 0.9;
+				}
+			.card .card_icon{
+				opacity: 0.6;
+				display: block;
+				font-size: 65px;
+				color: #FFFFFF;
+				-webkit-transition:all 200ms ease-in-out;
+				-moz-transition:all 200ms ease-in-out;
+				-ms-transition:all 200ms ease-in-out;
+				-o-transition:all 200ms ease-in-out;
+				transition:all 200ms ease-in-out;
+				height: 115px;
+			}
+			.card .card_text{
+				display: block;
+				text-transform: uppercase;
+				color: white;
+				font:bold 20px/1 'cFontB';
+				-webkit-transition:all 300ms ease-in-out;
+				-moz-transition:all 300ms ease-in-out;
+				-ms-transition:all 300ms ease-in-out;
+				-o-transition:all 300ms ease-in-out;
+				transition:all 300ms ease-in-out;
+			}
+				.card_1_list{
+					display: block;
+					padding: 15px 25px;
+					color:#777777;
+				}
+					.card_1_list_icon{
+						display: inline-block;
+						float: left;
+						width: 40px;
+						height: 40px;
+						text-align: center;
+						line-height: 40px;
+						color: #FFFFFF;
+						font-size: 20px;
+						border-radius: 50%;
+						-webkit-border-radius: 50%;
+						-moz-border-radius: 50%;
+						background: #C5CDD0;
+						margin-right: 10px;
+						-webkit-transition:all 150ms ease-in-out;
+						-moz-transition:all 150ms ease-in-out;
+						-ms-transition:all 150ms ease-in-out;
+						-o-transition:all 150ms ease-in-out;
+						transition:all 150ms ease-in-out;
+					}
+					.card_1_list_text{
+						font:bold 16px/1 'cFontB';
+						height: 40px;
+						line-height: 40px;
+					}
+
+				.card_1_list.next_list{
+					color: #D670FF
+				}
+					.card_1_list.next_list	.card_1_list_icon{
+						background-color: #D670FF
+					}
+				.card_1_list:hover{
+					color: #55cdc4;
+				}
+				.card_1_list:hover>.card_1_list_icon{
+						background: #55cdc4;
+				}
+	/*Create Candidate*/
+	.c_cand{
+		width: 300px;
+		height: 335px;
+		display: inline-block;
+		padding:12px 6px;
+		background: #FFFFFF;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+		-o-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+		box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+		margin: 5px;
+		-webkit-transition:all 150ms ease-in-out;
+		-moz-transition:all 150ms ease-in-out;
+		-ms-transition:all 150ms ease-in-out;
+		-o-transition:all 150ms ease-in-out;
+		transition:all 150ms ease-in-out;
+	}
+	.c_cand >span{
+		width: 100%;
+		display: inline-block;
+		float: left;
+		margin-bottom: 6px;
+	}
+		.c_cp_sub{
+			width: 180px;
+			height: 180px;
+			display: inline-block;
+			border-radius: 50%;
+			-webkit-border-radius:50%;
+			-moz-border-radius:50%;
+			-o-border-radius:50%;
+			background: #33DECC;
+			overflow: hidden;
+		}
+			.c_cp_sub img{
+				width: 100%;
+				min-height: 100%;
+			}
+	.c_cand_del{
+		margin: -30px 0 20px 0;
+	}
+	.c_cand input[type=text],select{
+		width: 260px;
+		padding: 5px 10px;
+		outline: none;
+		border:2px solid #EEE;
+		font: bold 16px/1 "cFontB";
+		color: #444;
+		letter-spacing: 1px;
+		-webkit-transition:all 200ms ease-in-out;
+		-moz-transition:all 200ms ease-in-out;
+		-ms-transition:all 200ms ease-in-out;
+		-o-transition:all 200ms ease-in-out;
+		transition:all 200ms ease-in-out;
+		background-position: 400px center;
+	}
+	.c_cand select{
+		width: 284px;
+	}
+	.c_cand input[type=text]:focus,select:focus{
+		border-color: #3FCDFF;
+		color:#0FAFC3;
+	}
+	.c_cand input.errA{
+		color: #F00!important;
+	}
+	.c_cand input.errA:focus{
+		color: #D00!important;
+		border-color: #F50!important;
+	}
+	.c_cand.newcand{
+		opacity: 0.5;
+		cursor: pointer;
+	}
+	.c_cand.newcand:hover{
+		opacity: 0.7;
+	}
+
+	.errB{
+	    width: 400px;
+	    height: 30px;
+	    text-align: right;
+	    color: #D00;
+	    margin-right: 8px;
+	    font:bold 16px/1 'cfontA';
+	    display: inline-block;
+	    position: relative;
+	    top: 5px;
+	}
+
+
+	.dash_disc{
+		display: inline-block;
+		width: 180px;
+		height: 185px;
+		margin: 15px;
+		cursor: pointer;
+	}
+	
+
+		.dash_lt{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			-o-border-radius: 50%;
+			color: #FFF;
+			font:bold 80px/150px 'cFontB';
+			-webkit-transition:all 200ms ease-in-out;
+			-moz-transition:all 200ms ease-in-out;
+			-ms-transition:all 200ms ease-in-out;
+			-o-transition:all 200ms ease-in-out;
+			transition:all 200ms ease-in-out;
+			-webkit-box-shadow: inset 0 0 0 0 rgba(0,0,0,0.1);
+			-moz-box-shadow: inset 0 0 0 0 rgba(0,0,0,0.1);
+			-o-box-shadow: inset 0 0 0 0 rgba(0,0,0,0.1);
+			box-shadow: inset 0 0 0 0 rgba(0,0,0,0.1);
+		}
+			.dash_lt:hover{
+				-webkit-box-shadow: inset 0 0 0 48px rgba(0,0,0,0.1);
+				-moz-box-shadow: inset 0 0 0 48px rgba(0,0,0,0.1);
+				-o-box-shadow: inset 0 0 0 48px rgba(0,0,0,0.1);
+				box-shadow: inset 0 0 0 48px rgba(0,0,0,0.1);
+			}
+		.dash_name{
+			display: block;
+			margin-top: 20px;
+			color: #444;
+			font:normal 20px/1 'cfontB';
+			text-transform: uppercase;
+		}
+
+	.b_vote_contnr{
+		width: 540px;
+		height: 80px;
+		padding: 8px 10px;
+		margin: 0;
+		float: left;
+		display: inline-block;
+		cursor: pointer;	
+		-webkit-transition:all 150ms ease-in-out;
+		-moz-transition:all 150ms ease-in-out;
+		-ms-transition:all 150ms ease-in-out;
+		-o-transition:all 150ms ease-in-out;
+		transition:all 150ms ease-in-out;
+		border-bottom: 2px solid #EEEEEE;
+		background: #FAFAFA;
+	}
+	.b_vote_contnr:hover{
+		background: #FFFFFF;
+	}
+	.b_vote_contnr:first-child{
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		-o-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.b_vote_contnr:last-child{
+		-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+		-o-box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+		box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+		border-bottom: none;
+	}
+		.vote_pic_A{
+			width: 80px;
+			height: 80px;
+			display: inline-block;
+			background: #EEEEEE;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			-o-border-radius: 50%;
+			border-radius: 50%;
+			overflow: hidden;
+			float:left;
+		}
+		.b_vote_name{
+			width: 320px;
+			height: 100%;
+			overflow: hidden;
+			float:left;
+			text-align: left;
+			font:bold 21px/1 'cFontB';
+			color: #333;
+			display: inline-block;
+			line-height: 80px;
+			padding:0 10px;
+		}
+		.b_vote_bttn{
+			-webkit-border-radius: 40px;
+			-moz-border-radius: 40px;
+			border-radius: 40px;
+			width: 110px;
+			margin:12px 5px 0;
+			padding: 10px 0;
+			display: inline-block;
+			float:left;
+			cursor: pointer;	
+			text-align: center;
+			font:bold 24px/1 'cFontB';
+			color: #58C715;
+			background: transparent;
+			border:3px solid #58C715;
+			outline: none;
+			-webkit-transition:all 150ms ease-in-out;
+			-moz-transition:all 150ms ease-in-out;
+			-ms-transition:all 150ms ease-in-out;
+			-o-transition:all 150ms ease-in-out;
+			transition:all 150ms ease-in-out;
+		}
+			.active_voteBox .b_vote_bttn{
+				color: #FFF;
+				background: #58C715;
+			}
+	.confirmVoteBtn{
+		width: 350px;
+		height: 350px;
+		margin: 35px 0;
+		-webkit-border-radius: 50%;
+		-moZ-border-radius: 50%;
+		-o-border-radius: 50%;
+		border-radius: 50%;
+		display: inline-block;
+		background: #EE002B;
+		color:#FFF;
+		font-family: 'Meera';
+		box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.25);
+		-webkit-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.25);
+		-moz-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.25);
+		-o-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.25);
+		-webkit-animation-name: boxShdw;
+	    animation-name: boxShdw;
+	    -webkit-animation-duration: 2s;
+	    animation-duration: 2s;
+	    -webkit-animation-iteration-count: infinite;
+	    animation-iteration-count: infinite;
+	}
+	@-webkit-keyframes boxShdw {
+	    0%   {box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -webkit-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -moz-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -o-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); }
+	    90%   {box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -webkit-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -moz-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -o-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); }
+	    100%   {box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -webkit-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -moz-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -o-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); }
+	}
+
+	/* Standard syntax */
+	@keyframes boxShdw {
+	    0%   {box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -webkit-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -moz-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); -o-box-shadow: 0 0 0 0px rgba(255, 0, 31, 0.20); }
+	    90%   {box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -webkit-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -moz-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -o-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); }
+	    100%   {box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -webkit-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -moz-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); -o-box-shadow: 0 0 0 100px rgba(255, 0, 31, 0.0); }
+	}
+
+		.vtagreeN{
+			width:220px;
+			height:55px;
+			background-color:rgba(255,255,255,0.95);
+			font:bold 32px/62px 'Meera';
+			border:none;
+			border-radius:2px;
+			-webkit-border-radius:2px;
+			-moz-border-radius:2px;
+			color:#EE002B;
+			cursor: pointer;
+			letter-spacing: 1px;
+			outline: none;
+		}
+		.vtagreeN:hover{
+			background-color:rgba(255,255,255,1);
+		}
+		.vtnotAgree{
+			width:110px;
+			height:30px;
+			background-color:transparent;
+			font:bold 26px/42px 'Meera';
+			border:none;
+			border-radius:2px;
+			-webkit-border-radius:2px;
+			-moz-border-radius:2px;
+			opacity: 0.8;
+			color:#FFFFFF;
+			cursor: pointer;
+			outline: none;
+		}
+		.vtnotAgree:hover{
+			opacity: 1;
+		}
+
+	.classLi{
+		width: 400px;
+		background: #FFF;
+		display: block;
+		padding: 16px 10px;
+		left:373px;
+		box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+		-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+		-o-box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+		margin: 8px 0;
+		font:bold 22px/1 'cFontB';
+		color:#555555;
+		opacity: 0.7;
+		cursor: pointer;
+	}
+	.classLi:hover{
+		opacity: 1;
+	}
+
+	.reslt_cnd{
+		width: 600px;
+		height: 100px;
+		background: #FFF;
+		display: block;
+		position: absolute;
+		top: 50px;
+		padding: 8px 10px;
+		left:373px;
+		box-shadow: 0 2px 1px rgba(0,0,0,0.2);
+	}
+		.reslt_cnd .prof_pic{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			background: #EEEEEE;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			-o-border-radius: 50%;
+			border-radius: 50%;
+			overflow: hidden;
+			float:left;
+		}
+		.reslt_cnd .rslt_data{
+			width: 490px;
+			margin-left: 10px;
+			height: 100px;
+			display: inline-block;
+			overflow: hidden;
+			float:left;
+		}
+			.reslt_cnd .cndt_name{
+				width: 100%;
+				display: inline-block;
+				overflow: hidden;
+				float:left;
+				padding-top: 8px;
+				text-align: left;
+				font:bold 21px/1 'cFontB';
+				color: #333;
+			}
+			.reslt_cnd .pbar{
+				width: 480px;
+				height: 6px;
+				float: left;
+				display: inline-block;
+				background: #EAEAEA;
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				-o-border-radius: 6px;
+				border-radius: 6px;
+				margin-top: 12px;
+			}
+				.reslt_cnd .pbar .pbar_prog{
+					height: 6px;
+					float: left;
+					display: inline-block;
+					background: #00CC00;
+					-webkit-border-radius: 6px;
+					-moz-border-radius: 6px;
+					-o-border-radius: 6px;
+					border-radius: 6px;
+				}
+			.reslt_cnd .reslt_count{
+				width: 100%;
+				display: inline-block;
+				overflow: hidden;
+				float:left;
+				padding-top: 8px;
+				text-align: left;
+				font:bold 35px/1 'cFontB';
+				color: #1CA3CD;
+			}
+	/* DIALOGUE BOXEX*/
+		.dialBox{
+			width: 600px;
+			height: 250px;
+			display: inline-block;
+			position: absolute;
+			background: #FFF;
+			-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.5),0 0 0 1000px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 2px 10px rgba(0,0,0,0.5),0 0 0 1000px rgba(0,0,0,0.2);
+			-o-box-shadow: 0 2px 10px rgba(0,0,0,0.5),0 0 0 1000px rgba(0,0,0,0.2);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.5),0 0 0 1000px rgba(0,0,0,0.2);
+			padding: 10px;
+			border: 1px dashed #DDD;
+			z-index: 999;
+			top: 160px;
+			left: 400px;
+		}
+
+	.creditsOf a{
+		text-decoration: none;
+		color: inherit;
+		opacity: 0.6;
+	}
+	.creditsOf a:hover{
+		opacity: 1;
+	}
+
+
+	/* Labels */
+	label.irb_a{
+		display: block;
+		margin: 2px 0;
+		font: bold 16px/1 "cFontB";
+		color: #888;	
+	}
+	/* Buttons */
+		button.bt1{
+			background: #57B25A;
+			color: #FFFFFF;
+			font:20px/1 'cFontA';
+			padding: 13px 30px;
+			border:none;
+			outline: none;
+			cursor: pointer;
+		}
+			button.bt1:hover{
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				-o-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			}
+			button.bt1:active{
+				-webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+				-moz-box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+				-o-box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+				box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+			}
+		button.bt1.gr2{
+			background: #57B25A;
+		}
+		button.bt1.blue{
+			background: #00B5FF;
+		}
+		button.bt1.red{
+			background: #E8302E;
+		}
+		button.bt1.disabled,button.bt1.disabled:hover{
+			background: #BBB!important;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			-o-box-shadow: none;
+			box-shadow: none;
+			cursor: default;
+		}
+	.circle_del_red{
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+		background: #DC2D00;
+		border: none;
+		font:bold 22px/1 'Arial';
+		outline: none;
+		color: #FFF;
+		border-radius: 50%;
+		-webkit-box-shadow:  0 2px 0 rgba(0,0,0,0.2);
+		-moz-box-shadow:  0 2px 0 rgba(0,0,0,0.2);
+		-o-box-shadow:  0 2px 0 rgba(0,0,0,0.2);
+		box-shadow:  0 2px 0 rgba(0,0,0,0.2);
+		-webkit-border-radius:50%;
+		-moz-border-radius:50%;
+		cursor: pointer;
+	}
+		.circle_del_red:hover{
+			background: #EC2D00;
+		}
+		.circle_del_red.green,.circle_del_red.green:hover{
+			background: #75A80C;
+		}
+
+</style>
+<link href="data/awsom/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<script src="data/jquery.js"></script>
+<script type="text/javascript">
+	/* Encrypt */
+	String.prototype.myEncrypt = function(){
+	    var hex, i;var result = "";
+	    for (i=0; i<this.length; i++) {
+	        hex = this.charCodeAt(i).toString(16);
+	        result += ("000"+hex).slice(-4);
+	    }
+
+	    return result
+	}
+
+	jQuery.fn.extend({
+		pageOut: function() {
+			return this.each(function() {
+				$(this).hide();
+				return this;
+			});
+		},
+		pageIn: function() {
+			return this.each(function() {
+				$(this).fadeIn();
+				return this;
+			});
+		},
+		pageThis: function() {
+			return this.each(function() {
+				$(".pagedivs:visible").pageOut();
+				$(this).pageIn();
+				return this;
+			});
+		},
+		diaLog:	function(dataFor){
+			dataFor = dataFor || "";
+			this.css({"top":($( window ).height() -this.height())/2,"left":($( window ).width() -this.width())/2}).attr("data-for",dataFor).fadeIn();
+			this.find("input").val("").focus();
+			return this;
+		},
+		EdiaLog: function(){
+			this.fadeOut();
+			return this;
+		}
+
+
+	});
+
+	/* PRE DEFINED DATAS */
+	var candidate_local_array = new Array();
+	var chance_for_vote = 0;
+
+	var NVotDly  = 5000;
+	if(typeof(localStorage.nvotdly) != "undefined"){
+		NVotDly = parseInt(localStorage.nvotdly);
+	}
+	else{
+		localStorage.nvotdly = NVotDly;
+	}
+	
+
+	var newVoteTimeOut,newVoteTimeOutCounter,resultTimeout;
+	var totalvotes = 0;
+	var totalcountedvotes =0;
+	var resultUpdateInterval = 160;
+	var localStorageRecords = new Array();
+	
+	
+
+	var beepSound = $('<audio id="aud_beep" controls style="display: none;"> 	<source src="data:audio/mpeg;base64,SUQzBABAAAAAbAAAAAwBIAULTDAGBFRSQ0sAAAACAAAAMFRBTEIAAAAIAAAAU2FtbWF0eVRJVDIAAAAFAAAAQmVlcFRZRVIAAAAFAAAAMjAxMlREUkMAAAAFAAAAMjAxMlRQRTEAAAALAAAATmFuZGFrdW1hcv/7QMQAAAAAAAAAAAAAAAAAAAAAAEluZm8AAAAPAAAAKAAAHUgABgYMDAwTExkZGSAgJiYmLCwzMzM5OUBAQEZGTExMU1NZWVlgYGZmZmxsc3NzeXmAgICGhoyMjJOTmZmZoKCmpqasrLOzs7m5wMDAxsbMzMzT09nZ2eDg5ubm7Ozz8/P5+f//AAAAOUxBTUUzLjk5cgGWAAAAAAAAAAAUOCQFfEIAADgAAB1IrQkjCAAAAAAA//tAxAAACPhBRlWTAAFBEC93MtACB//DZZNdU0SUgwoQbEh2XHZIawwcGpmhLQfTHWOzt34fAAAAAAAAAIEIu7Jpg+H1AgCBysHz+UOfv5Tw/wI7QH+BHcP8p7+gAED/bDAYDgYDAcDgACslN62viSkcmOerR54pGmoiVjKuhFQV1FsFpHEMN+JcSI9R6/47hhhhiRHr/5dSSMgV/CQNCU7+WBoShIGv+JQkDRUwMYDTMCUAwzD/+0LEBIPJ7CcWHfMAASOE4sHf9Eh8glswIIG0MA5CejfbfIs2Kw7HMe8FFTDxApcwdUI6MInB+jCKQa4wL8C2RYDACIMABZDHhoCYS//////7/v////9PrvuCJgaI5kYShoSk5vVHBiM46abkttXm4JjkZiSgUkcHueagpaaBIsaBvaZSk2YUAEOgKryH4xSA5b//9v//9P/R/o///62DCSjA21UyJJgyWM0zLT41anMwwEdcNTX/+0LECQPIDCMYDv+CQSWFYoHf9Ei5ZjULRzQwrgITNdpAygYTZ6qOCV01kZwESk1XWio89////////Qj/////cmcCBhgExlKT5pooBxvQ5ilA/8cLj3vHBOEFBir4XGc3PsaiLkaUqmaUSEZbFoYTgig4ztyI3T2M7P//s//+myn+n////TTGyMYkiFUyIJsyRM4zIUc1PnowvoebNQd6nTTcB50wrUIkNTKMy6UjbClOI0w1uYj/+0LEFQPIKCcYDv+CQR0FYsHf9EgESU1nVl17Qb////////Z////93Y6ppMwzBkySIQ0RQs34iIxJUZ5N4GyjTdVRnsxMAJ6OK21NH1LM+kuM74FMmSfMHAKSLZw/8YpLeFv//2/////+zo//+jzTRSSgFTIcmjI40zMFTjT6iTC2x8o0wzwENLDHgjCsAjE0arDMxFNupo4lPzXRdAxOTVdadv7Bn0f///////////If2oFBcEL/+0LEIYIIMCcYDv+CQR4EpHW/7EjZ5yNwhgoZqTm3MR7/GYQsFyGb0rEhmyQXcYRGCHn5WhuUMbC+mtcBmR0gu/kbpKcPVarG6sifs1f2f9iNFf/1e//6v/srMhCbMizUMtlTNMaOMK0H1zSgfRU0eofFMKNCPjOi9M3jg3EkzjsuNflYDFFJJ1Z68IWf////////////9RvZKgIrmdCYbXWp5K/GHRiUpr9Ec6a6mJLmHXA4x63/+0LELgPH/CUYDv+CQPsEo0HP8Eidmz36awdBqPLmYzyYKAS738jdICbv//1///////////So0jIMmjIQ2TKtXDSCnTCpx/g0Xr38NEdHzDCbAkcyuzDOgtN0og5BHTYRRBRSS5dadt7FfR///////////9H81qDDoaLKpv5iH2dGYiMKCG3dzPBtkgo8YhaD7n7LQbukRsOImtuwZsSBg8DqYO3DErthn//+z/////////T/puf/+0LEP4PH8CcYDv+CQP6E4wHP8EhVMfidMfzcMqFfNDagMJmH8zQrft80CogJMIrCUjIDVNChg3cezk8ONikoHFVLp1ZFYCNff////////6////rTzJEazPg8Nwpk9BSDDtxCk2JB/VNgDEGzDsgZo9TNTZb7NPOw0joTKp/MDAJh8MSuksGv////////////QjH8mjHw2zJ1ZDPatzCZyCgz1D/aM7tIJjB7gl8xa2jRQRN6nQ7/+0DEUIPIBCUYDv+CQO4E40HP8EhY+TZBHBxWRpbaQ3wt93///////r////9VaRJGmlSCcEUh9+4mI5CKxuNMPMbfcIgGIog4J+qtG5pIavi5pz0GWksYJBKtjtxinpwz///Z/////+n//+n/iCoxqIcxjL4x4TszLmAwdwdTMy74zTMfBzswYkIcMLMsSextgrnCWQavGgYRVJPLPWBX/////////////+9VAGSxpgZHC0yfmv/7QsRjA8fgJRgO/4JA/QTjAc/wSKBiOIgabmI/Bm4Ph+piNANcfrqpuOSmpo0aT9plNMmBgQre+kN0ljN3////////////u/dASTGchDGAwzG1OjLiazBvR3Yy7jlYMthHRjBYAi0Gtoihht0lHCFuawF4cRlIvNO2wt93////////////p3PjDJgJNOic4giD9sxMSCD2jdDXRY3EwO8MSHBlz91SNrSI07HTQ3yMlJgwKC1oPv/7QsR0g8esJRoO/4JA/oUjAc/wSPDErDz///1f//////6v/36epOsxkIUxZMIxoUEypnIwXodpMqv56TKdh2UwUMI6MAuc0aAzcRBOGqI1mKA4kqieWjsETI4INFBg3eZT2TyMPrDDzZyF182VsMnMP2BUD2MfNdv0z8+DM+5MboUCARgb6SukBN3/////////////+moxhIIxUMUxfUAyWncwWUeQMnK6gDJjx3owRYJFMVO40v/7QsSHA8fIJRoO/4JBAwSjAc/wSIFDc4wOIJU1sIRIlKhe6it5iv/////////////boMlBM0WDTdxaPct8w/gK4NnrVADZaAw4w/sE9PZRA1s+DOr5MtboxYhgSBWQQHKKcPP///////9H/3///f/bLTGAgzE8wjFBRzIedjBOh6MyP3rfMheHkzA9QkoyK+TTIhN0CU4qgDW4aFiSqJ7ZPYCLPf////////////8luMmhQFSA3v/7QsSYg8YoJRoO/4Jo9ASjQc/wSCTT3CwMP3CYzaPErs2Z8K3MPsBIj1sHNWvszY+DJu9MRocKAZkcASukwNf//2///////////pCSMXSAMSDFMR1EMdKBMDtHuDHruxoxy0eeMDCCSTL0ANOCw3WGDixtNcBMWJSrXuorYWaru/////////////VQFyRmAThlPONEY/6qzEeAmg3etI8N1SCujEbQTU3mSozERwxzSExOgIwiJ//7QsSyA8e4JxoO/4JA/ISjQc/wSIKgWviA5RT2zP/////////////suSNZMViBMQTGMQFHMXZ6MDsHpzGS+2UxiIejMCBCTDN8FNUjs3cBTjJWNcgweJqrntk9gI//////////////7mhWEQDKMThqGTbUWzwY8DGuwsM7JxZNOtxDWTGogao7Vb00pbMyobgxtwkwzPsEA8juzyA5RSWzK+xu9ad0nr+r+25PSPk26RzTLVyjO//7QsTEg8fYJRoO/4JA94TjQc/wSKuv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1UVeYQPmz6pMQU1FMy45OS4zqqqqqqqqqqqqqqqqJRKMS//7QsT0g8gsJxgO/4JBKgUiQd/0SCnMqk4NW57MMwHdDU4+Yg1DgeKMNrCjz12MOCP44S1TiVeNYGYBEtNRx4cjdPg1X////s//Zq////+r/fYOMvDBM5TqNUlLOIaUMTkIETg0flc3/Yd7MSZCXjagOzB5ADORKzSGLDMUsDCoD0HmsxoJBv/////+R2W939D/7+n+pO2NNbRINbUwWD8xiK4zrVM2emww18hRNjQ//TYXyF0w7f/7QsTyg8hQKRgO/4JBFgSigd/0SAJaNr4/MzUNNUjyNP2lMwRfMKAARzcR+4xSW6///r///+rb//q/+v9TcXuW1BmKPBlsV5oOvBulRZiIo8EbhtxSG28jmhiIQR2ZPogJmJsldG+uObCTplUAyowEEjBgGBwAd5HguQkQ6kfZ2zt35BK3/h+n7UjFJ2URiMWN09PTjQfPggGSgYWH5Op13//X/+n//+jrz1kDKgAATcaSChMBLP/7QMT0A8gYJxgO/4JBIYRigd/0SAcDAQgLYwJABeMALBczBZQl00M96UM2EH0DEIAwQwpoDwMB4BdjBIASAwTwDgMBWAPg4A0EAAGwGCnaA+khUquTyqVUYgpdEOgMatLjVrjTKF40Ql1GbL2jbnzLWWdGMYlK/9f///9Pd/3f/7gAAInW63ZbKLRYIwgALIFJgYAIprKofKVFUjCvJOVleW0vUKy7Td1QxjJGdlO7VdA5C5F4//tCxPSDyEApGA7/gkElhGKB3/RIiVhTRM7FzHSONSGUfzGW2+NfleWxxOA/1KsF+Uy1//+eZCzMLAXw/T9bWVTQmb///kvTKqLgnkodcua49t////9lZ3jkyXdP3ohQr9JwaPIMC6jz4/4BWklTQ01DT5XkoCiqmC9rAkhl1S9rIAYPmtRUVNqRUVNpmZoKFjrlVXUVNOg0eBoGioKrBU6WPCIGol//+HbK3fEVTEFNRTMuOTku//tCxP+DSNApFg7/okGui2LF3/BIM1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//tCxPcADrhrIVX3gAIVHSw3NPACVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//tCxMqDyPRi9h2EAAAAADSAAAAEVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"><source src="data:audio/ogg;base64,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"></audio>');
+	function beepAlert() { beepSound.get(0).play()}
+	
+	$(document).ready(function(){
+		console.info("Made By Webloud www.webloud.in");
+
+		/* Update NVOTDELAY SELECT */
+		switch(NVotDly){
+		case 8000:
+			$("#vote_delay_entry_input").val("8")
+			break;
+		case 10000:
+			$("#vote_delay_entry_input").val("10");
+	}
+
+		/* SET COUNT OF VOTE */
+		updateCount(-1);
+
+
+		/* SETUP PREDEFINED VALUES */
+
+
+		if(typeof(localStorage.post) != "undefined"){
+			switch(localStorage.post)
+			{
+
+				case "pdash":
+					$("#resetAllButton").fadeIn(1000);
+					$("#pdash").pageThis();
+					break;
+				case "newcand":
+					$("#resetAllButton").fadeIn(1000);
+					$('#pnewcand').pageThis();
+					break;
+				default:
+					$("#phome").pageThis();
+			}
+		}
+		else{
+			localStorage.post = "start";
+		}
+
+
+		if(typeof(localStorage.records) === "undefined"){
+			localStorage.records = "{}";
+		}
+		if(typeof(localStorage.count) === "undefined"){
+			localStorage.count = 0;
+		}
+
+		if(typeof(localStorage.candidates) != "undefined" && $.trim(localStorage.candidates) != ""){
+			candidate_local_array = JSON.parse(localStorage.candidates);
+		}
+
+		if(typeof(localStorage.schoolName)  != "undefined"){
+			$("#school_name_entry_input").val(localStorage.schoolName);
+		}
+		if(typeof(localStorage.electionName)  != "undefined"){
+			$("#election_name_entry_input").val(localStorage.electionName);
+		}	
+
+		/* Auto parlement Election */
+
+
+		  var today = new Date();
+		  if($("#election_name_entry_input").val() == ""){
+			  	$("#election_name_entry_input").val("School Parliament Election "+today.getFullYear()+"-"+(today.getFullYear()+1));
+		  }
+
+		/* CREATE FORMS FOR CANDIDATES WHO ARE ALREADY IN */
+		var sampleHTML_a = "";
+		var profileimage = "";
+		$.each(candidate_local_array, function(index,value ) {
+			sampleHTML_a += '<span class="c_cand" data-count="'+this.count+'"> <span class="c_cand_pic"> <span class="c_cp_sub"> <img src="'+this.prof+'" style="'+(this.wth == "w"?"height:100%;width:auto;\" data-wth='w'":"width:100%;height:auto;\" data-wth='h'")+' > </span> </span> <span class="c_cand_del"> <button class="circle_del_red">x</button> </span> <span class="c_cand_name" style="margin-top:10px;"> <input type="text" name="c_cand_name" placeholder="New Candidate Name" value='+this.name+'> </span> <span class="c_cand_male"> <select name="gender"> <option value="m">Male</option> <option value="f" '+(this.gend=="f"?"selected":"")+'>Female</option> </select> </span> <span class="c_cand_pict"> <input type="text" name="c_cand_pict" placeholder="Profile Picture" value="'+(this.prof == "data/pixels/b.jpg" || this.prof == "data/pixels/g.jpg"?"":this.prof.replace(/^candidate\-photos\//g,""))+'" list="pics"> </span> </span>';
+		});
+		$("#pnewcand .inex_box_cb").prepend(sampleHTML_a);
+
+		/* SET SOFTWARE CONFIGURATION */
+
+		$("#school_name_entry_input").bind("keyup keydown load",function(){
+	  		if($(this).val().length >= 3){
+				$(this).addClass("active");	
+			}
+			else{
+				$(this).removeClass("active");
+			}
+			checkif_pregi_comp();
+		}).load();
+		$("#election_name_entry_input").bind("keyup keydown load",function(){
+			if($(this).val().length >= 3){
+				$(this).addClass("active");
+			}
+			else{
+				$(this).removeClass("active");
+			}
+			checkif_pregi_comp();
+		}).load();
+		$("#password_entry_input").bind("keyup keydown load",function(){
+			if($(this).val().length >= 4){
+				$(this).addClass("active");
+			}
+			else{
+				$(this).removeClass("active");
+			}
+			checkif_pregi_comp();
+		});
+
+		$("#pregi .sbmitA").click(function(){
+			localStorage.schoolName = $("#school_name_entry_input").val();
+			localStorage.electionName = $("#election_name_entry_input").val();
+			localStorage.encryPassword = $("#password_entry_input").val().myEncrypt();
+
+			var localVtDly = 5000;
+			switch($("#vote_delay_entry_input").val())
+			{
+				case "8":
+					localVtDly = 8000;
+					break;
+				case "10":
+					localVtDly = 10000;
+			}
+			localStorage.nvotdly = localVtDly;
+			NVotDly = localVtDly;
+		
+			localStorage.nvotdly
+			if($(this).hasClass("modfy")){$('#pdash').pageThis();$("#pregi_submit").show();$("#pregi_modify").hide(); return false} 
+			localStorage.post = "newcand";
+			$("#resetAllButton").fadeIn(1000);
+			$('#pnewcand').pageThis();
+			return false;
+		});
+
+
+		/* CREATE CANDIDATES */
+
+		$(document).on("change",".c_cand_male select",function(){
+			$c_cand = $(this).closest(".c_cand");
+			if($.trim($c_cand.find(".c_cand_pict input").val()) == "" || $c_cand.find(".c_cand_pict input").hasClass("errA")){
+				$c_cand.find(".c_cand_pic img").css({"height":"100%","width":"auto"});
+				if($(this).val() != "f"){
+					$c_cand.find(".c_cand_pic img").attr("src","data/pixels/b.jpg");
+				}
+				else{
+					$c_cand.find(".c_cand_pic img").attr("src","data/pixels/g.jpg");
+				}
+			}
+		});
+		$(document).on("change",".c_cand_pict input",function(){
+			$c_cand = $(this).closest(".c_cand");
+			$imgtag = $c_cand.find(".c_cand_pic img");
+			$this = $(this);
+			if($.trim($(this).val()) == ""){$(this).removeClass("errA");return true}
+
+			$imageurl = "candidate-photos/"+$(this).val();
+			$theImage =$("<img src="+$imageurl+">");
+			
+			$theImage.load(function(){
+				$this.removeClass("errA");
+				$imgtag.attr("src",$imageurl);
+				if(this.width > this.height){
+					$imgtag.css({"height":"100%","width":"auto"}).attr("data-wth","w");
+				}
+				else{
+					$imgtag.css({"width":"100%","height":"auto"}).attr("data-wth","h");
+				}
+
+			}).error(function(){
+				$this.addClass("errA");
+				$imgtag.css({"height":"100%","width":"auto"}).attr("data-wth","w");
+				if($c_cand.find("select").val() != "f"){
+					$imgtag.attr("src","data/pixels/b.jpg");
+				}
+				else{
+					$imgtag.attr("src","data/pixels/g.jpg");
+				}
+			});
+		});
+
+		$(document).on("change keydown keyup keypress",".c_cand.newcand .c_cand_name input",function(){
+			$c_cand = $(this).closest(".c_cand");
+			if($.trim($(this).val()) == ""){return true}
+			$(".circle_del_red.green").removeClass("green").text("x").removeAttr("disabled");
+			$c_cand.animate({"opacity":1},100);
+			$('<span class="c_cand newcand"> <span class="c_cand_pic"> <span class="c_cp_sub"> <img src="data/pixels/b.jpg" data-wth="w"> </span> </span> <span class="c_cand_del"> <button class="circle_del_red green" disabled="disabled">+</button> </span> <span class="c_cand_name" style="margin-top:10px;"> <input type="text" name="c_cand_name" placeholder="New Candidate Name"> </span> <span class="c_cand_male"> <select name="gender"> <option value="m">Male</option> <option value="f">Female</option> </select> </span> <span class="c_cand_pict"> <input type="text" name="c_cand_pict" placeholder="Profile Picture" list="pics"> </span> </span>').fadeIn("fast").css("display","inline-block").appendTo("#pnewcand .inex_box_cb");
+			$c_cand.removeClass("newcand");
+		});
+		$(document).on("click",".circle_del_red",function(){
+			$this = $(this);
+			if($this.hasClass("green")) return false;
+			$c_cand = $(this).closest(".c_cand");
+			if(confirm("You are going to delete the candidate "+$c_cand.find(".c_cand_name input").val()+". You can't recover it after deleting it"))$c_cand.remove();
+		});
+		$("#submitnewcand").click(function(){
+			$cand_form = $(".c_cand").not( ".newcand" );
+			$cand_form.each(function(){
+				if($.trim($(this).find(".c_cand_name input").val()) == "") $cand_form = $cand_form.not($(this));
+			});
+			if($cand_form.length < 2){
+				$(".errB").show("slow");
+			}
+			else{
+				$(".errB").fadeOut("slow");
+				candidate_local_array = [];
+				$cand_form.each(function(){
+					var count = (typeof($(this).attr("data-count")) === "undefined")?0:$(this).attr("data-count");
+					candidate_local_array.push({
+						"id":(candidate_local_array.length+1),
+						"name":$(this).find(".c_cand_name input").val(),
+						"gend":$(this).find(".c_cand_male select").val(),
+						"prof":(($(this).find(".c_cand_pict input").hasClass("errA") || $.trim($(this).find(".c_cand_pict input").val()) == "")?($(this).find(".c_cand_male select").val() == 'f'? "data/pixels/g.jpg":"data/pixels/b.jpg"):"candidate-photos/"+$(this).find(".c_cand_pict input").val()),
+						"count":count,
+						"place":0,
+						"wth":$imgtag = $(this).find(".c_cand_pic img").attr("data-wth")
+					});
+				});
+				localStorage.candidates = JSON.stringify(candidate_local_array);
+				localStorage.post = "pdash";
+				$("#pdash").pageThis();
+			}
+		});
+		$(".close_dialogue").click(function(){
+			$(this).closest(".dialBox").EdiaLog();
+		});
+		$(".dBoxA form").submit(function(){
+			if($(this).find(".dBoxA_pwd").val().myEncrypt() != localStorage.encryPassword){
+
+				$(this).find(".errB").hide().fadeIn("fast");
+				return false;
+			}
+			var dataFor = $(".dBoxA").attr("data-for");
+			switch(dataFor){
+				case "se":
+					$("#pvot").pageThis();
+					readyForVote();
+					newVoteReady();
+					break;
+				case "mc":
+					$("#submitnewcand").text("APPLY MODIFICATIONS");
+					$("#pnewcand").pageThis();
+					break;
+				case "cn":
+					$("#pregi_submit").hide();$("#pregi_modify").show();
+					$("#password_entry_input").val("");$("#password_entry_input").keydown();
+					$("#pregi").pageThis();	
+					break;
+				case "sr":
+					if(typeof(localStorage.records) === "undefined"){
+						$("#presult").pageThis();
+						showResultsStart();
+					}
+					var arrayRecrord = JSON.parse(localStorage.records);
+					if(Object.keys(arrayRecrord).length>0)
+					{	
+						var htmlDefault = "<span class='classLi curNT' onclick='$(\"#presult\").pageThis();showResultsStart();'>LAST VOTED</span>";
+						$.each(arrayRecrord, function(index, value) {
+						    htmlDefault += "<span class='classLi' onclick='setResult(\""+index+"\")'>"+index+"</span>";
+						}); 
+						$("#presultselect .classList").html(htmlDefault);
+						$("#presultselect").pageThis();
+					}
+					else
+					{
+						$("#presult").pageThis();
+						showResultsStart();
+					}
+					break;
+				case "reset":
+					resetApp();
+					break;
+				case "dbord":
+					chance_for_vote = 0;
+					clearTimeout(newVoteTimeOut);
+					clearTimeout(newVoteTimeOutCounter);
+					clearTimeout(resultTimeout);
+					$("#pvot").removeClass("actived");
+					$("#pdash").pageThis();
+					break;
+				case "trial":
+					var arrayCand = JSON.parse(localStorage.candidates);
+					$.each(arrayCand, function(index,value ) {
+						this.count = 0 ;
+					 });
+					updateCount(0);
+					localStorage.candidates = JSON.stringify(arrayCand);
+					alert("All votes are cleared. Now every canidate have 0 votes !!");
+					break;
+				case "next":
+					$(".dBoxB").diaLog();
+					break;
+			}
+			$(".dBoxA").EdiaLog().find(".errB").hide();
+			return false;
+		});
+		$(".dBoxA form,.dBoxB form").keypress(function(e) { if (e.which == 13) $(this).submit()});
+
+		$(".dBoxB form").submit(function(){
+			var recrodName = $.trim($(this).find(".dBoxB_name").val());
+			var arrayRecrord = JSON.parse(localStorage.records);
+			var arrayCurrent = JSON.parse(localStorage.candidates);
+			var localArray = {totalcount:updateCount(0),datas:arrayCurrent};
+			if(recrodName.length == 0)
+			{
+				alert("Must type any name");
+				return false;
+			}
+			arrayRecrord[recrodName] = localArray;
+			resetApp();
+			localStorage.records = JSON.stringify(arrayRecrord);
+			$(".dBoxB").EdiaLog();
+			alert("This section was saved in the name "+recrodName+"\nYou can access it again using SHOW RESULT in main menu");
+			return false;
+		});
+
+		/* VOTE BOX */
+		$(document).on("mouseover",".b_vote_contnr",function(){
+			$(this).addClass("active_voteBox");
+		});
+		$(document).on("mouseout",".b_vote_contnr",function(){
+			$(this).removeClass("active_voteBox");
+		});
+		$(document).on("click",".b_vote_contnr",function(){
+			if(chance_for_vote != 1){closeVote(1);return true;}
+			var index = $(this).index(".b_vote_contnr");
+			$(".vtagreeN").attr("data-index",index);
+			$("#voteBoxContainer").hide();
+			$(".votcnfrm").fadeIn().find(".candNmInd").text($(this).find(".b_vote_name").text());
+		});
+		$(document).on("click",".vtagreeN",function(){
+			var index = $(this).attr("data-index");
+			voteConfirm(index);
+			$(".votcnfrm").fadeOut(function(){$("#voteBoxContainer").show();});
+		});
+		$(document).on("click",".vtnotAgree",function(){
+			$("#voteBoxContainer").fadeIn();
+			$(".votcnfrm").hide();
+		});
+
+		$("body").keypress(function(e) { if (e.which == 13 && ($("#pvothid").hasClass("actived") && $(".dBoxA").css("display") == "none") ){$("#pvot").pageThis();$("#pvothid").removeClass("actived");newVoteReady(); }});
+	});
+	function checkif_pregi_comp(){
+		if($("#school_name_entry_input").hasClass("active") && ($("#election_name_entry_input").hasClass("active") && $("#password_entry_input").hasClass("active"))){
+
+			$("#pregi_lock").attr("src","data/pixels/lock_icon_green.png");
+			$("#pregi .sbmitA").removeAttr("disabled").removeClass("disabled");
+		}
+		else{
+			$("#pregi_lock").attr("src","data/pixels/lock_icon_red.png");
+			$("#pregi .sbmitA").attr("disabled","disabled").addClass("disabled");
+		}
+	}
+
+	function readyForVote(){
+		var candidate_vote_array = new Array();
+		if(typeof(localStorage.candidates) && $.trim(localStorage.candidates) != ""){
+			candidate_vote_array = JSON.parse(localStorage.candidates);
+		}
+		$("#voteBoxContainerRow").html("");
+		$.each(candidate_vote_array, function(index,value ) {
+			$("#voteBoxContainerRow").append('<span class="b_vote_contnr"> <span class="vote_pic_A"> <img src="'+this.prof+'" style="'+(this.wth == "w"?"height:100%;width:auto;\" data-wth='w'":"width:100%;height:auto;\" data-wth='h'")+'"> </span> <span class="b_vote_name">'+this.name+'</span> <button class="b_vote_bttn">VOTE</button> </span>');
+		 });
+		$("#pvothid").removeClass("actived");
+	}
+	function newVoteReady(){
+		$("#pvothid").removeClass("actived");
+		chance_for_vote = 1;
+		clearTimeout(newVoteTimeOut);
+		clearTimeout(newVoteTimeOutCounter);
+	}
+	function voteConfirm(index)
+	{
+		candidate_voting_array = JSON.parse(localStorage.candidates);
+		if(!candidate_voting_array){
+			alert("Something went wrong with an ERROR CODE : #ERROR_23. \n Mail to error@webloud.in with the details and Error Code");
+			return true;
+		}
+		candidate_voting_array[index].count++;
+		localStorage.candidates = JSON.stringify(candidate_voting_array);
+		closeVote(0);
+	}
+	function closeVote(errcode){
+		if(errcode != 0){
+			$("#pvothid").pageThis().addClass("actived");
+			$("#pvothid .thanks").hide();
+			$("#pvothid .oops").show();
+		}
+		else{
+			updateCount();
+			beepAlert();
+			$("#pvothid").pageThis().addClass("actived");
+			$("#pvothid .thanks").show();
+			$("#pvothid .oops").hide();
+		}
+		countDownNewVote(NVotDly);
+		newVoteTimeOut = setTimeout(function(){$("#pvot").pageThis().removeClass("actived");newVoteReady();},NVotDly);
+	}
+	function countDownNewVote(current){
+		$(".countNVote font").text((current/1000).toFixed(0) + " seconds");
+		if(current > 0)
+			newVoteTimeOutCounter = setTimeout(function(){countDownNewVote(current - 1000)},1000)
+	}
+	function showResultsStart(){
+		var candidate_result_array = new Array();
+		if(typeof(localStorage.candidates) && $.trim(localStorage.candidates) != ""){
+			candidate_result_array = JSON.parse(localStorage.candidates);
+		}
+		var countArray = new Array();
+		$(".resultboxcont").html("");
+		$.each(candidate_result_array, function(index,value ) {
+			totalvotes+= this.count;
+			countArray[index] = this.count;
+			$('<span class="reslt_cnd" style="top:'+(30+(index*125))+'px" data-post="'+index+'"> <span class="prof_pic"> <img src="'+this.prof+'" style="'+(this.wth == "w"?"height:100%;width:auto;\" data-wth='w'":"width:100%;height:auto;\" data-wth='h'")+'"> </span> <span class="rslt_data"> <span class="cndt_name">'+this.name+'</span><br/> <span class="pbar"> <span class="pbar_prog" style="width:1%;"></span> </span> <span class="reslt_count"><span class="count_digit">0</span> Votes</span> </span> </span>').appendTo(".resultboxcont");
+		
+
+		});
+		resultTimeout = setTimeout(function(){nextResultUpdate(countArray)},resultUpdateInterval);
+	}
+	function nextResultUpdate(resultArray){
+		clearTimeout(resultTimeout);
+		$fornextUpdate = 0;
+		$.each(resultArray,function(index,value){
+			$localRElement=$(".reslt_cnd").eq(index);
+			if(value>0){
+				$newCount = parseInt($localRElement.find(".count_digit").text()) +1;
+				$localRElement.find(".count_digit").text($newCount);
+				totalcountedvotes++;
+			}
+			else{
+				$newCount = parseInt($localRElement.find(".count_digit").text());
+			}
+			$localRElement.find(".pbar_prog").animate({"width":(($newCount/totalcountedvotes*100 < 1)?"1%":($newCount/totalcountedvotes*100)+"%")},resultUpdateInterval-50);
+			resultArray[index]--;
+			if(resultArray[index] > 0)$fornextUpdate++;
+		});
+		if($fornextUpdate > 0)
+			resultTimeout = setTimeout(function(){nextResultUpdate(resultArray)},resultUpdateInterval);
+		else{
+			var origArray = new Array();
+			var varArray = new Array();
+			var postArray = new Array();
+
+			var candidate_R_array = new Array();
+			if(typeof(localStorage.candidates) && $.trim(localStorage.candidates) != ""){
+				candidate_R_array = JSON.parse(localStorage.candidates);
+			}
+			$.each(candidate_R_array, function(index,value ) {
+				origArray[index] = this.count;
+				postArray.push(postArray.length);
+			});
+
+			varArray = origArray;
+
+			var swapped,temp,tempIndex;
+			do {
+				swapped = false;
+				 for (var i = 0; i < varArray.length - 1; i++) {
+					if (varArray[i] < varArray[i + 1]) {
+						temp = varArray[i];
+						tempIndex = postArray[i];
+
+						varArray[i] = varArray[i + 1];
+						varArray[i + 1] = temp;
+
+						postArray[i] = postArray[i + 1];
+						postArray[i + 1] = tempIndex;
+
+						swapped = true;
+		            }
+		        }
+		    } while (swapped);
+		    setTimeout(function(){
+			    $.each(postArray, function(index,value ) {
+			    	$(".reslt_cnd").eq(value).animate({"top":(30+(index*125))},500);
+				});	
+		    },600);
+			
+
+		}
+	}
+	function updateCount(arg){
+		var countNow = parseInt(localStorage.count);
+		if(arg == 0)
+			localStorage.count = 0;
+		else if(arg != -1)
+			localStorage.count = countNow+1;
+		$(".bbcK").text(localStorage.count);
+		if(arg == 0)
+			return countNow;
+	}
+	function resetApp(){	
+		var x = localStorage.schoolName,y=localStorage.electionName,z=localStorage.encryPassword;
+		localStorage.clear();
+		updateCount(0);
+		localStorage.schoolName = x;
+		localStorage.electionName = y;
+
+		$("#school_name_entry_input").val(x);
+		$("#election_name_entry_input").val(y);
+		$("#pnewcand .inex_box_cb").html('<span class="c_cand newcand" style="opacity:1"> <span class="c_cand_pic"> <span class="c_cp_sub"> <img src="data/pixels/b.jpg" data-wth="w"> </span> </span> <span class="c_cand_del"> <button class="circle_del_red green" disabled="disabled">+</button> </span> <span class="c_cand_name" style="margin-top:10px;"> <input type="text" name="c_cand_name" placeholder="New Candidate Name"> </span> <span class="c_cand_male"> <select name="gender"> <option value="m">Male</option> <option value="f">Female</option> </select> </span> <span class="c_cand_pict"> <input type="text" name="c_cand_pict" placeholder="Profile Picture" list="pics"> </span> </span>');
+		localStorage.encryPassword = z;
+		localStorage.post = "start";
+		candidate_local_array.length = 0;
+		$("#password_entry_input").val("");$("#password_entry_input").keydown();
+		$("#pregi").pageThis();
+	}
+
+	function setResult(index){
+		var myArrayRecrord = JSON.parse(localStorage.records);
+		localStorage.candidates = JSON.stringify(myArrayRecrord[index]["datas"]);
+		candidate_local_array = JSON.parse(localStorage.candidates);
+		localStorage.count = myArrayRecrord[index]["totalcount"];
+		updateCount();
+		$("#presult").pageThis();
+		showResultsStart();
+	}
+</script>
+</head>
+<body>
+	 <div id="phome" class="pagedivs" style="display:inline-block;">
+	 	<div class="solgan">
+	 		<center><img src="data/pixels/logo.png" style="margin-top:20px"></center>
+	 	</div>
+	 	<div class="hdr" style="width:100%;background:url(data/pixels/blurbgw3.jpg);background-size:100% auto;">
+	 		<span style="background:url(data/pixels/overlay-pattern.png);font:bold 30px/1 'cFontB'; padding: 120px 0; text-align: center; color: #FFF;display:block;">
+		 		<sup><i class="fa fa-quote-left"></i></sup>
+		 		FOR STUDENTS <i class="fa fa-circle" style="font-size:10px;position:relative;top:-8px;"></i> BY STUDENTS
+		 		<sup><i class="fa fa-quote-right"></i></sup>
+		 	</span>
+	 	</div>
+	 	<div class="start" style="background:#F8F8F8;border-top:3px solid #3CC;border-bottom:3px solid #3CC;">
+	 		<h3 style="font:bold 22px/1 'Meera';text-align:center;padding:50px 0 0;color:#555;display:block;margin:0;">NOW LET US SELECT OUR LEADER THROUGH COMPUTER<br/>VOTE FOR YOUR CANDIDATE WITH A CLICK</h3>
+	 		<center>
+				<button class="bt1 green" onclick='$("#pchrome").pageThis()' style="margin-top:10px;margin-bottom:50px;">START ELECTION</button>
+				<a href="http://myleader4u.blogspot.in/p/how-to-use-myleader-tutorial.html"  target="_blank"><button class="bt1 red" style="margin-top:10px;margin-bottom:50px;">LEARN HOW TO USE</button></a>
+				<a href="http://myleader4u.blogspot.in/p/myleader-license.html"  target="_blank"><button class="bt1 blue" style="margin-top:10px;margin-bottom:50px;">LICENCE</button></a>
+	 		</center>
+	 	</div>
+	 	<div class="_3sc" >
+	 		<center>
+	 			<div class="creditsOf" style="margin-top:60px;font:bold 18px/1 'cFontB';color:#1A6E7D;">
+				 	<span style="font-size:20px;margin-bottom:6px;display:inline-block;color:#888888;font-family:'cFontB'">CREATED BY WEBLOUD</span><br/>
+				 	<a href="https://www.facebook.com/shameel.kadannamanna" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/xpertshameel" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="https://www.facebook.com/shameel.kadannamanna" target="_blank"><i class="fa fa-globe"></i> Shameel Kadannamanna</a> 
+				 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 	<a href="https://www.facebook.com/ReonSaji" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/ReonSaji" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="http://reonsaji.webloud.in/" target="_blank"><i class="fa fa-globe"></i>
+				 	Reon Saji </a> 
+				 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 	<a href="https://www.facebook.com/Abhijithb1998" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/abhijithb1998" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="http://abhijith.webloud.in/" target="_blank"><i class="fa fa-globe"></i>
+				 	Abhijith Balakrishnan</a> 
+			 	</div>
+	 		</center>
+	 	</div>
+	 </div>
+
+<!--
+	Modification of this file is not allowed...
+	The offline webapplication was made by Team Webloud 
+	Website : www.webloud.in
+	Facebook : www.fb.com/webloud 
+ -->
+	 <div id="pchrome" class="pagedivs" style="background:#F5F5F5">
+	 	<div class="chromx_1">
+	 		<center>
+	 			<div class="explore_box_a" style="margin-top:150px;">
+		 			<div class="inex_box_ab">
+		 				<p class="para_aa" style="font:bold 25px/1.1 'Meera';margin:20px 0;color:#00a295;">
+			 				<span class="sp_hlta" style="color: #D22929;display: block;font-size: 44px;">WARNING</span>PLEASE VERIFY THAT ALL FUNCTIONS OF THIS SOFTWARE<br> ( FROM VOTING TO RESULT ANNOUNCEMENT )<br> WORKS WELL <span class="sp_hlta" style="color: #D22929">ON EVERY COMPUTERS</span> <br>THAT YOU WANT TO RUN THIS SOFTWARE<br>BEFORE VOTING STARTS<br><br><span style="color:#AAAAAA;font-size: 18px;">THERE ARE SOME REPORTS THAT SOME USERS<br> COULD'T VIEW THE RESULTS AFTER VOTING DUE TO SOME TECHNICAL ISSUES </span>
+			 				<br>  <span style="color:#777777;font-size: 18px">NB :Use this on your own risk, We are not responsible for any issues due to this software</span>
+	 				</p>
+		 			</div>
+		 			<div class="inex_box_ab">
+		 				<button class="bt1 blue" onclick="$('#pregi').pageThis();" style="font:bold 25px/1.2 'Meera';padding-bottom:5px;letter-spacing:1px;">I AGREE</button>
+		 			</div>
+		 			<div class="inex_box_ab">
+		 				<p class="para_aa" style="font:bold 20px/1.2 'cFontA';margin:50px 0 10px;color:#AAAAAA;">
+		 					USING LATEST VERSION OF <span class="sp_hlta">CHROME</span> OR <span class="sp_hlta">MOZILLA</span> WILL LET YOU<br/>TO ACCESS ALL FEATURES OF THIS APPLICATION<br>
+		 				</p>
+		 			</div>
+		 			<div class="inex_box_aa">
+			 			<img src="data/pixels/chrome_exb.png" style="height:40px;">
+			 			<img src="data/pixels/mozilla_exb.png"  style="height:40px;margin-left:6px;">
+		 			</div>
+	 			</div>
+	 		</center>	
+	 	</div>
+	 </div>
+	 <div id="pregi" class="pagedivs" style="background:#FCFCFC">
+	 	<center>
+ 			<div class="explore_box_b" style="width:590px;height:330px;overflow:auto;margin:150px auto 0;">
+	 			<div class="inex_box_ba" style="width:150px;float:left;display:block;height:100%;">
+	 				<img src="data/pixels/lock_icon_red.png" style="width:80%;margin-top:40px" id="pregi_lock">
+	 			</div>
+	 			<div class="inex_box_bb" style="text-align:left;">
+	 				<form>
+			 			<div class="inex_box_bba">
+			 				<label class="irb_a">School Name</label>
+			 				<input type="text" name="school_name_entry_input" id="school_name_entry_input">
+			 			</div>
+			 			<div class="inex_box_bba">
+			 				<label class="irb_a">Election Name</label>
+			 				<input type="text" name="election_name_entry_input" id="election_name_entry_input">
+			 			</div>
+			 			<div class="inex_box_bba">
+			 				<label class="irb_a">Voting Delay ( Block Voting For Sometime After a Vote )</label>
+			 				<select style="width:435px" id="vote_delay_entry_input">
+			 					<option value="5">5 seconds</option>
+			 					<option value="8">8 seconds</option>
+			 					<option value="10">10 seconds</option>
+			 				</select>
+			 			</div>
+			 			<div class="inex_box_bba">
+			 				<label class="irb_a">Password ( Minimum 4 characters )</label>
+			 				<input type="password" name="password_entry_input" id="password_entry_input">
+			 			</div>
+			 			<div class="inex_box_bba">
+				 			<button class="bt1 blue sbmitA disabled" id="pregi_submit" style="float:right;margin-right:6px;" disabled>SUBMIT</button>
+				 			<button class="bt1 blue sbmitA modfy disabled" id="pregi_modify" style="float:right;margin-right:6px;display:none;" disabled>MODIFY</button>
+			 			</div>
+		 			</form>
+	 			</div>
+ 			</div>
+ 		</center>
+	 </div>
+
+<!--
+	Modification of this file is not allowed...
+	The offline webapplication was made by Team Webloud 
+	Website : www.webloud.in
+	Facebook : www.fb.com/webloud 
+ -->
+	 <div id="pnewcand" class="pagedivs" style="background:#F3F3F3">
+		<center>
+			<div class="explore_box_c" style="width:90%;overflow:auto;margin:30px auto 0;">
+	 			<div class="inex_box_ca">
+	 				<p style="margin:0;padding:0;font:bold 18px/1.2 'Meera';color:#888; ">
+	 					Type name of the first candidate, and the form for the second will appear<br/><font color="#6A6A6A">To use photos candidates copy those photos to the folder 'candidate-photos' located near this software. <br/>And then fill 'Profile Picture' box with the file name ( including extension like .jpg,.png etc.. ) and click outside of the box.
+	 					</font>
+	 					<br/>
+	 					<font color="#FF7300">To create <B>NOTA</B> option, you can use nota.jpg as Profile Picture</font>
+	 					<br/>
+	 					<font color="#c35800">These pre-included images ( bag.jpg , board.jpg , book.jpg , chair.jpg , umbrella.jpg ) can be used as symbols for candidate</font>
+	 					<br/><br/>
+	 				</p>
+	 			</div>
+				<div class="inex_box_cb">
+					<span class="c_cand newcand" style="opacity:1">
+						<span class="c_cand_pic">
+							<span class="c_cp_sub">
+								<img src="data/pixels/b.jpg" data-wth="w">
+							</span>
+						</span>
+						<span class="c_cand_del">
+							<button class="circle_del_red green" disabled="disabled">+</button>
+						</span>
+						<span class="c_cand_name" style="margin-top:10px;">
+							<input type="text" name="c_cand_name" placeholder="New Candidate Name">
+						</span>
+						<span class="c_cand_male">
+							<select name="gender">
+								<option value="m">Male</option>
+								<option value="f">Female</option>
+							</select>
+						</span>
+						<span class="c_cand_pict">
+							<input type="text" name="c_cand_pict" placeholder="Profile Picture" list="pics">
+						</span>
+
+					</span>
+	 			</div>
+	 			<datalist id="pics">
+				  <option value="bag.jpg">
+				  <option value="board.jpg">
+				  <option value="book.jpg">
+				  <option value="chair.jpg">
+				  <option value="nota.jpg">
+				  <option value="umbrella.jpg">
+				</datalist>
+	 			<div class="inex_box_cc">
+	 			<br/>	
+	 				<span class="errB" style="display:none;">An election need atleast 2 candidates.<br/>Candidate form without name will be removed</span>
+	 				<button class="bt1 blue" id="submitnewcand"  style="margin-bottom:30px;">CREATE CANDIDATES</button>
+	 			</div>
+ 			</div>
+		</center>
+
+	 </div>
+	 <div id="pdash" class="pagedivs" style="background:#377584">
+	 	<div class="explore_box_d" style="margin:100px auto;width: 70%;min-width: 770px;min-height: 300px;font:bold 30px/1 'cFontB';">
+	 		<div class="grid_3_cont">
+			 	<div class="grid_3">
+			 		<div class="padd_0_8">
+			 			<span class="card" style="background: #1ea8fb;height: 180px;" onclick='$(".dBoxA").diaLog("se");'>
+				 			<span class="padd_25">
+				 				<span class="card_icon"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+				 				<span class="card_text">START VOTING</span>
+			 				</span>
+			 			</span>
+			 			<span class="card" style="background: #4bbcff;height: 180px;" onclick='$(".dBoxA").diaLog("sr");'>
+				 			<span class="padd_25">
+				 				<span class="card_icon"><i class="fa fa-pie-chart" aria-hidden="true"></i></span>
+				 				<span class="card_text">SHOW RESULTS</span>
+				 			</span>
+			 			</span>
+			 		</div>
+			 	</div>
+			 	<div class="grid_3">
+			 		<div class="padd_0_8">
+			 			<span class="card" style="background: #4bbcff;height: 180px;" onclick='$(".dBoxA").diaLog("mc");'>
+				 			<span class="padd_25">
+				 				<span class="card_icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+				 				<span class="card_text">MANAGE CANDIDATE</span>
+			 				</span>
+			 			</span>
+			 			<span class="card" style="background: #58c7ff;height: 180px;" onclick='$(".dBoxA").diaLog("cn");'>
+				 			<span class="padd_25">
+				 				<span class="card_icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+				 				<span class="card_text">CONFIGURATION</span>
+				 			</span>
+			 			</span>
+			 		</div>
+			 	</div>
+			 	<div class="grid_3">
+			 		<div class="padd_0_8">
+			 			<span class="card" style="padding-bottom: 9px;">
+			 				<span style="background: #142840;display: block;margin-bottom: 10px;">
+					 			<span class="padd_25" style="font:bold 24px/1 'cFontB';color:#9eacbd;">
+			 						<span class="bbcK" style="color: #FFFFFF;">0</span> VOTES 
+				 				</span>
+			 				</span>
+			 				<span class="card_1_list next_list" onclick='$(".dBoxA").diaLog("next");'>
+			 					<span class="card_1_list_icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+			 					<span class="card_1_list_text">NEXT CLASS</span>
+			 				</span>
+			 				<span class="card_1_list" onclick="$('.dBoxA').diaLog('trial');">
+			 					<span class="card_1_list_icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+			 					<span class="card_1_list_text">CLEAR ALL VOTES</span>
+			 				</span>
+			 				<span class="card_1_list" onclick="beepAlert()" >
+			 					<span class="card_1_list_icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+			 					<span class="card_1_list_text">PLAY TRIAL BEEP</span>
+			 				</span>
+			 				<a href="http://myleader4u.blogspot.in/p/help.html" target="_blank" style="text-decoration: none;">
+			 					<span class="card_1_list">
+				 					<span class="card_1_list_icon"><i class="fa fa-question" aria-hidden="true"></i></span>
+				 					<span class="card_1_list_text">HELP</span>
+			 					</span>
+			 				</a>
+			 			</span>
+			 		</div>
+			 	</div>
+			 </div>
+	 	</div>
+	 	<center>
+		 	<div class="creditsOf" style="margin-top:60px;font: 18px/1 'cFontB';color:#1A6E7D;width: 70%;min-width: 770px;">
+		 		<div class="padd_0_8">
+			 		<span class="card padd_25">
+				 	<span style="font-size:20px;margin-bottom:6px;display:inline-block;color:#555555;font-family:'cFontB'">CREDITS</span><br/>
+				 	<a href="https://www.facebook.com/shameel.kadannamanna" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/xpertshameel" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="https://www.facebook.com/shameel.kadannamanna" target="_blank"><i class="fa fa-globe"></i> Shameel Kadannamanna</a> 
+				 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 	<a href="https://www.facebook.com/ReonSaji" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/ReonSaji" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="http://reonsaji.webloud.in/" target="_blank"><i class="fa fa-globe"></i>
+				 	Reon Saji </a> 
+				 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 	<a href="https://www.facebook.com/Abhijithb1998" target="_blank"><i class="fa fa-facebook-square"></i></a>
+				 	<a href="https://twitter.com/abhijithb1998" target="_blank"><i class="fa fa-twitter"></i></a>
+				 	<a href="http://abhijith.webloud.in/" target="_blank"><i class="fa fa-globe"></i>
+				 	Abhijith Balakrishnan</a> 
+				 	</span>
+			 	</div>
+		 	</div>
+	 	</center>
+	 </div>
+	 <div id="pvot" class="pagedivs" style="background:#EAEAEA;">
+		<center>
+			<br/><br/>
+			<div id="voteBoxContainer" style="display: inline-block">
+				<div id="voteBoxContainerRow" style="width: 560px;">
+
+				</div>
+			</div>
+			<div class="votcnfrm"  style="display:none;" style="position:absolute;top:0;left:0;">
+				<span class="confirmVoteBtn" >
+					<span style="margin-top: 75px;display: inline-block;font-size: 22px;font-weight:bold;">
+						<span style="opacity:0.9">YOU SELECTED</span><br/>
+						<span style="font-size: 30px;display: inline-block;width: 250px;line-hiehgt:33px;" class="candNmInd"></span><br/><br/>
+						<span style="opacity:0.9">CAN WE PROCEED ?</span><br><br>
+						<button class="vtagreeN" data-index="-1">YES</button><br/>
+						<button class="vtnotAgree">NO</button>
+					</span>
+				</span>
+			</div>
+			<br/><br/>
+			<button class="bt1 blue" onclick='$(".dBoxA").diaLog("dbord");'>END VOTING</button>
+		</center>
+	 </div>
+	 <div id="pvothid" class="pagedivs" style="background:#FCFCFC">
+	 	<center>
+	 		<div class="thanks" style="margin-top: 160px;">
+		 		<br>
+		 		<span class="hdg_2" style="font: bold 90px/1 'Meera';margin: 72px 0 0;color:#19A725;display: block;">THANKYOU!</span><span class="hdg_1" style="font: bold 23px/1 'Meera';margin:0;color:#55A91D;">Thankyou for voting. Have a great day!</span><br>
+		 		
+	 		</div>
+	 		<div class="oops" style="margin-top:160px;">
+		 		<br>
+		 		<span class="hdg_2" style="font: bold 90/1 'Meera';margin: 72px 0 0;color:#E00;display: block;">OOPS!</span><span class="hdg_1" style="font: bold 23px/1 'Meera';margin:0;color:#C00;">Voting was unsuccessful. May be some technical error. Report to administrator</span><br>
+	 		</div>
+	 		<br/>
+	 		<div style="margin-top:30px;font:bold 30px/1 'cFontB';color:#555555;">
+			 	Total Votes <span class="bbcK">0</span>
+		 	</div>
+	 		<span class="countNVote" style="font:bold 22px/1.2 'cFontA';margin:20px 0;color:#777;display:inline-block;padding:8px 60px;border:3px solid #99AA00;">Wait <font color="#9A0">5 seconds</font> for next vote</span>
+	 		<br/>
+			<button class="bt1 blue" onclick='$(".dBoxA").diaLog("dbord");'>END VOTING</button>
+	 	</center>
+	 </div>
+	 <div id="presultselect" class="pagedivs" style="background:#F3F3F3;">
+	 	<center>
+	 		<div style="margin:40px 0 20px;font:bold 20px/1 'cFontB';color:#555555;">
+			 	Select a class to publish it's voting Results
+		 	</div>
+		 	<div class="classList">
+		 	</div>
+		 	<br/>
+		 	<button class="bt1 blue" onclick='$("#pdash").pageThis();'>GO TO MAIN MENU</button>
+	 	</center>
+	 </div>
+	 <div id="presult" class="pagedivs" style="background:#F3F3F3;">
+	 	<center>
+	 		<div class="resultboxcont">
+		 	</div>
+		 	<button class="bt1 blue" onclick='$("#pdash").pageThis();' style="position:fixed;top:50px;right:8px;">MAINMENU</button>
+		 	<button class="bt1 green" onclick='$("#phome").pageThis();' style="position:fixed;top:95px;right:8px;">HOME</button>
+		 	<button class="bt1" onclick='window.location = "http://www.webloud.in"' style="position:fixed;top:140px;right:8px;background:#E00049;">WEBLOUD.IN</button>
+	 	</center>
+	 </div>
+	 <div class="dialBox dBoxA" data-for="" style="display:none;">
+	 	<form>
+		 	<center>
+		 		<span style="font:bold 18px/1.2 'cFontA';margin:22px 0;color:#555555;display:inline-block;margin:50px 0 0 0;">ENTER YOUR PASSWORD TO CONTINUE</span><br/>
+		 		<span class="errB" style="text-align:center;display:none;">It was a wrong password</span>
+				<input type="password" class="dBoxA_pwd" style="width: 380px; margin: 20px 0 8px; padding: 5px 10px; outline: none; border:2px solid #DDD; font: bold 18px/1 'cFontB'; color: #555; letter-spacing: 1px;" placeholder="Your Password is Here"><br/><br/>
+				<button class="bt1 red close_dialogue" type="button">CLOSE</button>
+				<button class="bt1">SUBMIT</button>
+		 	</center>
+		</form>
+	 </div>
+
+	 <div class="dialBox dBoxB" data-for="" style="display:none;">
+	 	<form>
+		 	<center>
+		 		<span style="font:bold 18px/1.2 'cFontA';color:#777777;display:inline-block;margin:26px 0 0 0;">TYPE A <font color="#111111">NAME</font> FOR SAVING CURRENT CLASS</span><br/>
+		 		<span style="font:bold 17px/1 'Meera';color:#1F9C8A;display:inline-block;margin:8px 0 0 0;width:430px;">Use <font color="#D670FF">NEXT CLASS</font> feature to conduct elections in more classes using this computer.</span><br/>
+				<input type="text" class="dBoxB_name" style="width: 380px; margin: 14px 0 4px; padding: 5px 10px; outline: none; border:2px solid #DDD; font: bold 18px/1 'cFontB'; color: #555; letter-spacing: 1px;" placeholder="Type the name of current Class"><br/><br/>
+				<button class="bt1 red close_dialogue" type="button">CLOSE</button>
+				<button class="bt1" type="submit">SUBMIT</button>
+		 	</center>
+		</form>
+	 </div>
+
+	 <a href="https://www.itschool.gov.in/" target="_blank"><img src="data/pixels/itatschool_logo_a.png" style="position:fixed;bottom:12px;left:25px;" alt="IT@SCHOOL"></a>
+	 <a href="http://www.webloud.in" target="_blank"><img src="data/pixels/webloud_logo_a.png" style="position:fixed;bottom:12px;right:25px;" alt="Webloud"></a>
+	 <button class="bt1 red" style="position:fixed;top:8px;right:8px;font-size:18px;padding:8px 20px;display:none;" id="resetAllButton" onclick='$(".dBoxA").diaLog("reset");'>RESET DATAS</button>
+<a href="http://myleader4u.blogspot.in/p/help.html" target="_blank"><button class="bt1 red" style="position:fixed;top:8px;left:8px;font-size:18px;padding:8px 15px;background:#A08AFF;" id="homeButtonN">HELP <i class="fa fa-question-circle"></i></button></a>
+
+<!--
+	Modification of this file is not allowed...
+	The offline webapplication was made by Team Webloud 
+	Website : www.webloud.in
+	Facebook : www.fb.com/webloud 
+ -->
+</body>
+</html>
